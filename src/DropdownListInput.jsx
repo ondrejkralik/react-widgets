@@ -8,6 +8,7 @@ class DropdownListInput extends React.Component {
     value: PropTypes.any,
     placeholder: PropTypes.string,
     textField: CustomPropTypes.accessor,
+    valueField: PropTypes.string,
     valueComponent: CustomPropTypes.elementType
   };
 
@@ -16,11 +17,12 @@ class DropdownListInput extends React.Component {
         placeholder
       , value
       , textField
+      , valueField
       , valueComponent: Component } = this.props;
 
     return (
       <div className="rw-input">
-        {!value && placeholder
+        {!value || valueField && !value[valueField] && placeholder
           ? <span className='rw-placeholder'>{placeholder}</span>
           : Component
             ? <Component item={value} />

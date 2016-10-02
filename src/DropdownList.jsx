@@ -240,6 +240,7 @@ var DropdownList = React.createClass({
         />
         <DropdownListInput
           value={valueItem}
+          valueField={valueField}
           textField={textField}
           placeholder={placeholder}
           valueComponent={valueComponent}
